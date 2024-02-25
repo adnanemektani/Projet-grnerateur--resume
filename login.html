@@ -7,7 +7,7 @@
 
 </head>
 <body>
-
+<!-- partial:index.partial.html -->
 <div class="wrapper">
 
   <div class="login-box">
@@ -44,7 +44,7 @@
   </div>
 
 </div>
-
+<!-- partial -->
   <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script>
 <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js'></script>
 <script>
@@ -52,22 +52,23 @@
     var usernameInput = document.getElementById('username').value;
     var passwordInput = document.getElementById('password').value;
 
-   .
+    // Vous pouvez remplacer cette vérification par une requête AJAX pour vérifier les données côté serveur.
+    // Pour cet exemple, je vais utiliser des données statiques stockées dans le localStorage.
 
     var savedUsername = localStorage.getItem('username');
     var savedPassword = localStorage.getItem('password');
-
+// Stockage des données dans le localStorage (peut être placé dans une autre partie de votre application)
 localStorage.setItem('username', 'username@gmail.com');
 localStorage.setItem('password', '123456');
 
     if (usernameInput === savedUsername && passwordInput === savedPassword) {
       alert('Authentification réussie!');
-      
+      // Rediriger vers la deuxième page
       window.location.href = 'main.html';
-      return false; 
+      return false; // Empêcher le formulaire de soumettre via l'action du formulaire
     } else {
       alert('Échec de l\'authentification. Veuillez vérifier vos informations.');
-      return false; 
+      return false; // Empêcher le formulaire de soumettre via l'action du formulaire
     }
   }
 </script>
