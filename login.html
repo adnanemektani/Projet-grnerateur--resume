@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Animated Login Form with Changing Background</title>
+  <link rel="stylesheet" href="login.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="wrapper">
+
+  <div class="login-box">
+    <form onsubmit="return authenticate()">
+      <h2>Login</h2>
+
+      <div class="input-box">
+        <span class="icon">
+          <ion-icon name="mail"></ion-icon>
+        </span>
+        <input type="email" id="username" required>
+        <label>Email</label>
+      </div>
+
+      <div class="input-box">
+        <span class="icon">
+          <ion-icon name="lock-closed"></ion-icon>
+        </span>
+        <input type="password" id="password" required>
+        <label>Password</label>
+      </div>
+
+      <div class="remember-forgot">
+        <label><input type="checkbox"> Remember me</label>
+        <a href="#">Forgot Password?</a>
+      </div>
+
+      <button type="submit">Login</button>
+
+      <div class="register-link">
+        <p>Don't have an account? <a href="#">Register</a></p>
+      </div>
+    </form>
+  </div>
+
+</div>
+<!-- partial -->
+  <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script>
+<script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js'></script>
+<script>
+  function authenticate() {
+    var usernameInput = document.getElementById('username').value;
+    var passwordInput = document.getElementById('password').value;
+
+    // Vous pouvez remplacer cette vérification par une requête AJAX pour vérifier les données côté serveur.
+    // Pour cet exemple, je vais utiliser des données statiques stockées dans le localStorage.
+
+    var savedUsername = localStorage.getItem('username');
+    var savedPassword = localStorage.getItem('password');
+// Stockage des données dans le localStorage (peut être placé dans une autre partie de votre application)
+localStorage.setItem('username', 'username@gmail.com');
+localStorage.setItem('password', '123456');
+
+    if (usernameInput === savedUsername && passwordInput === savedPassword) {
+      alert('Authentification réussie!');
+      // Rediriger vers la deuxième page
+      window.location.href = 'main.html';
+      return false; // Empêcher le formulaire de soumettre via l'action du formulaire
+    } else {
+      alert('Échec de l\'authentification. Veuillez vérifier vos informations.');
+      return false; // Empêcher le formulaire de soumettre via l'action du formulaire
+    }
+  }
+</script>
+</body>
+</html>
